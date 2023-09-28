@@ -40,10 +40,10 @@ const Footer = () => {
       </div>
       {/* Newsletter sign-up form */}
       <div>
-        <form action>
+        <form>
           <div className="gird-cols-1 grid items-center justify-center gap-4 md:grid-cols-3">
             <div className="md:mb-6 md:ml-auto">
-              <p className>
+              <p>
                 <strong>Sign up for our newsletter</strong>
               </p>
             </div>
