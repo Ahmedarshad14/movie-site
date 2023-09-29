@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Movies from "./Movies";
+import { Carousel } from 'react-responsive-carousel'
 const Home = () => {
 	const [movies, setMovies] = useState([]);
 
@@ -18,18 +20,23 @@ const Home = () => {
 		getAllMovies();
 	}, []);
 	return (
-        <>
-    <div className="my-8">
-        <h1 className="text-white text-4xl font-bold mx-auto text-center">Top Movies</h1>
-    </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-        {movies.map((movie) => (
-            <div key={movie.id} className="flex flex-col pb-2">
-                <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
-                <h2 className="text-white text-2xl">{movie.title}</h2>
-            </div>
-        ))}
-    </div>
+        <>   
+		<Carousel
+	dynamicHeight = {true}
+	autoPlay = {true}
+	transitionTime={2}
+	infiniteLoop = {true}
+	showThumbs = {false}
+	showArrows = {true}
+	>
+	{	
+	movies.map((movie) => (
+			<img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
+		))
+	}
+	</Carousel>
+
+    <Movies />
 </>)
 };
 
