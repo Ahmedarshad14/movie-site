@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Movies from "./Movies";
 import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 const Home = () => {
 	const [movies, setMovies] = useState([]);
 
@@ -14,7 +16,7 @@ const Home = () => {
 				);
 				setMovies(response.data.results);
 			} catch (error) {
-				console.log("error");
+				console.log(error);
 			}
 		};
 		getAllMovies();
@@ -30,10 +32,10 @@ const Home = () => {
 	showArrows = {true}
 	>
 	{	
-	movies.map((movie) => (
-			<img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
-		))
-	}
+		movies.map((movie) => (
+				<img key={movie.id} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
+			))
+		}
 	</Carousel>
 
     <Movies />

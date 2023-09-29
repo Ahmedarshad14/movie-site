@@ -6,7 +6,7 @@ import MovieCard from '../components/MovieCard'
 const Movies = () => {
   const {type} = useParams();
   const [movies, setMovies] = useState([]);
- 
+
   const getMovies = async () => {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${ type ? type : 'popular'}?api_key=b77b9a6d7a246c64469f87198a6118d8&language=eng-US`);
@@ -17,12 +17,12 @@ const Movies = () => {
   }
   useEffect(() => {
     getMovies()
-  },[]) 
+  },[])
 
   useEffect(() => {
     getMovies()
   },[type])
- 
+
   return (
   <>
     <div>
